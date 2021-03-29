@@ -114,7 +114,7 @@ class _CenterControllerActionButtonsState
       return Container();
     }
 
-    final iconSize = 60.0;
+    final iconSize = 50.0;
 
     _removeVideoControllerListener();
     _attachListenerToController();
@@ -132,39 +132,51 @@ class _CenterControllerActionButtonsState
           height: double.infinity,
           child: Material(
             color: Colors.transparent,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                if (!widget.isLive)
-                  IconButton(
-                    icon: Icon(
-                      Icons.skip_previous,
-                    ),
-                    color: Colors.white,
-                    onPressed: widget.onSkipPrevious,
-                    iconSize: iconSize,
-                  ),
-                InkWell(
-                  borderRadius: BorderRadius.circular(50.0),
-                  onTap: _play,
-                  child: AnimatedIcon(
-                    icon: AnimatedIcons.play_pause,
-                    progress: _animController.view,
-                    color: Colors.white,
-                    size: iconSize * 1.5,
-                  ),
+            child: Center(
+              child: InkWell(
+                borderRadius: BorderRadius.circular(50.0),
+                onTap: _play,
+                child: AnimatedIcon(
+                  icon: AnimatedIcons.play_pause,
+                  progress: _animController.view,
+                  color: Colors.white,
+                  size: iconSize,
                 ),
-                if (!widget.isLive)
-                  IconButton(
-                    icon: Icon(
-                      Icons.skip_next,
-                    ),
-                    onPressed: widget.onSkipNext,
-                    color: Colors.white,
-                    iconSize: iconSize,
-                  ),
-              ],
+              ),
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[
+            //     if (!widget.isLive)
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.skip_previous,
+            //         ),
+            //         color: Colors.white,
+            //         onPressed: widget.onSkipPrevious,
+            //         iconSize: iconSize,
+            //       ),
+            //     InkWell(
+            //       borderRadius: BorderRadius.circular(50.0),
+            //       onTap: _play,
+            //       child: AnimatedIcon(
+            //         icon: AnimatedIcons.play_pause,
+            //         progress: _animController.view,
+            //         color: Colors.white,
+            //         size: iconSize * 1.5,
+            //       ),
+            //     ),
+            //     if (!widget.isLive)
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.skip_next,
+            //         ),
+            //         onPressed: widget.onSkipNext,
+            //         color: Colors.white,
+            //         iconSize: iconSize,
+            //       ),
+            //   ],
+            // ),
           ),
         ),
       );
